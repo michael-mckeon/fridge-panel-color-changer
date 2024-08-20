@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge Panel Color Changer Demo</title>
+    <title>Fridge Panel Color Changer with MoodUp</title>
     <style>
         body {
             display: flex;
@@ -12,7 +12,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Basic styling for the fridge */
         .fridge {
             width: 300px;
             height: 600px;
@@ -23,13 +22,13 @@
             border: 2px solid #000;
         }
 
-        /* Panel overlays */
         .panel {
             position: absolute;
             width: 50%;
             height: 50%;
             background-color: rgba(255, 255, 255, 0.5);
             border: 1px solid #333;
+            transition: background-color 2s ease; /* Smooth transition between colors */
         }
 
         .panel1 { top: 0; left: 0; }
@@ -37,7 +36,6 @@
         .panel3 { bottom: 0; left: 0; }
         .panel4 { bottom: 0; right: 0; }
 
-        /* Styling the color swatches */
         .color-swatch {
             display: inline-block;
             width: 30px;
@@ -57,12 +55,21 @@
             margin-top: 20px;
             font-weight: bold;
         }
+
+        #moodup-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
     <div class="fridge">
-        <!-- Fridge Panels -->
         <div class="panel panel1" id="panel1"></div>
         <div class="panel panel2" id="panel2"></div>
         <div class="panel panel3" id="panel3"></div>
@@ -72,63 +79,86 @@
     <div class="color-container">
         <div class="section-title">UPPER PANELS - 17 Colors</div>
         <p>Select a color for the upper left panel:</p>
-        <!-- Upper left panel color swatches -->
         <div id="upper-left-swatches">
+            <!-- Swatches -->
             <div class="color-swatch" style="background-color: #AF1E2D;" onclick="changeColor('panel1', '#AF1E2D')"></div>
             <div class="color-swatch" style="background-color: #B02C49;" onclick="changeColor('panel1', '#B02C49')"></div>
-            <div class="color-swatch" style="background-color: #543452;" onclick="changeColor('panel1', '#543452')"></div>
-            <div class="color-swatch" style="background-color: #7E9462;" onclick="changeColor('panel1', '#7E9462')"></div>
-            <div class="color-swatch" style="background-color: #3E5A78;" onclick="changeColor('panel1', '#3E5A78')"></div>
-            <div class="color-swatch" style="background-color: #794644;" onclick="changeColor('panel1', '#794644')"></div>
-            <div class="color-swatch" style="background-color: #4D4E54;" onclick="changeColor('panel1', '#4D4E54')"></div>
             <!-- Add more swatches as needed -->
         </div>
 
         <p>Select a color for the upper right panel:</p>
-        <!-- Upper right panel color swatches -->
         <div id="upper-right-swatches">
+            <!-- Swatches -->
             <div class="color-swatch" style="background-color: #AF1E2D;" onclick="changeColor('panel2', '#AF1E2D')"></div>
             <div class="color-swatch" style="background-color: #B02C49;" onclick="changeColor('panel2', '#B02C49')"></div>
-            <div class="color-swatch" style="background-color: #543452;" onclick="changeColor('panel2', '#543452')"></div>
-            <div class="color-swatch" style="background-color: #7E9462;" onclick="changeColor('panel2', '#7E9462')"></div>
-            <div class="color-swatch" style="background-color: #3E5A78;" onclick="changeColor('panel2', '#3E5A78')"></div>
-            <div class="color-swatch" style="background-color: #794644;" onclick="changeColor('panel2', '#794644')"></div>
-            <div class="color-swatch" style="background-color: #4D4E54;" onclick="changeColor('panel2', '#4D4E54')"></div>
             <!-- Add more swatches as needed -->
         </div>
 
         <div class="section-title">LOWER PANELS - 17 Colors</div>
         <p>Select a color for the lower left panel:</p>
-        <!-- Lower left panel color swatches -->
         <div id="lower-left-swatches">
+            <!-- Swatches -->
             <div class="color-swatch" style="background-color: #F3E9B6;" onclick="changeColor('panel3', '#F3E9B6')"></div>
             <div class="color-swatch" style="background-color: #E5E0E6;" onclick="changeColor('panel3', '#E5E0E6')"></div>
-            <div class="color-swatch" style="background-color: #F4F2E2;" onclick="changeColor('panel3', '#F4F2E2')"></div>
-            <div class="color-swatch" style="background-color: #BCCCD1;" onclick="changeColor('panel3', '#BCCCD1')"></div>
-            <div class="color-swatch" style="background-color: #C8A7A1;" onclick="changeColor('panel3', '#C8A7A1')"></div>
-            <div class="color-swatch" style="background-color: #E6A69C;" onclick="changeColor('panel3', '#E6A69C')"></div>
-            <div class="color-swatch" style="background-color: #F4EAE5;" onclick="changeColor('panel3', '#F4EAE5')"></div>
             <!-- Add more swatches as needed -->
         </div>
 
         <p>Select a color for the lower right panel:</p>
-        <!-- Lower right panel color swatches -->
         <div id="lower-right-swatches">
+            <!-- Swatches -->
             <div class="color-swatch" style="background-color: #F3E9B6;" onclick="changeColor('panel4', '#F3E9B6')"></div>
             <div class="color-swatch" style="background-color: #E5E0E6;" onclick="changeColor('panel4', '#E5E0E6')"></div>
-            <div class="color-swatch" style="background-color: #F4F2E2;" onclick="changeColor('panel4', '#F4F2E2')"></div>
-            <div class="color-swatch" style="background-color: #BCCCD1;" onclick="changeColor('panel4', '#BCCCD1')"></div>
-            <div class="color-swatch" style="background-color: #C8A7A1;" onclick="changeColor('panel4', '#C8A7A1')"></div>
-            <div class="color-swatch" style="background-color: #E6A69C;" onclick="changeColor('panel4', '#E6A69C')"></div>
-            <div class="color-swatch" style="background-color: #F4EAE5;" onclick="changeColor('panel4', '#F4EAE5')"></div>
             <!-- Add more swatches as needed -->
         </div>
+
+        <!-- MoodUp Button -->
+        <div id="moodup-btn" onclick="toggleMoodUp()">Toggle MoodUp Mode</div>
     </div>
 
     <script>
-        // JavaScript function to change the color of the fridge panels
+        // Array of colors for the upper and lower panels
+        const upperColors = ['#AF1E2D', '#B02C49', '#543452', '#7E9462', '#3E5A78', '#794644', '#4D4E54']; // Add more colors as needed
+        const lowerColors = ['#F3E9B6', '#E5E0E6', '#F4F2E2', '#BCCCD1', '#C8A7A1', '#E6A69C', '#F4EAE5']; // Add more colors as needed
+
+        let moodUpActive = false;
+        let upperInterval, lowerInterval;
+
         function changeColor(panelId, color) {
             document.getElementById(panelId).style.backgroundColor = color;
+        }
+
+        function toggleMoodUp() {
+            moodUpActive = !moodUpActive;
+
+            if (moodUpActive) {
+                // Start the MoodUp mode for upper and lower panels independently
+                upperInterval = setInterval(() => cycleColors('upper'), 2000); // Change every 2 seconds
+                lowerInterval = setInterval(() => cycleColors('lower'), 2000);
+            } else {
+                // Stop the MoodUp mode
+                clearInterval(upperInterval);
+                clearInterval(lowerInterval);
+            }
+        }
+
+        function cycleColors(panelGroup) {
+            let panel1, panel2, colors;
+
+            if (panelGroup === 'upper') {
+                panel1 = document.getElementById('panel1');
+                panel2 = document.getElementById('panel2');
+                colors = upperColors;
+            } else {
+                panel1 = document.getElementById('panel3');
+                panel2 = document.getElementById('panel4');
+                colors = lowerColors;
+            }
+
+            const randomColor1 = colors[Math.floor(Math.random() * colors.length)];
+            const randomColor2 = colors[Math.floor(Math.random() * colors.length)];
+
+            panel1.style.backgroundColor = randomColor1;
+            panel2.style.backgroundColor = randomColor2;
         }
     </script>
 
