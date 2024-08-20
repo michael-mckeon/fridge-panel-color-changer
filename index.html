@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fridge Panel Color Changer Demo</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: Arial, sans-serif;
+        }
+
         /* Basic styling for the fridge */
         .fridge {
             width: 300px;
@@ -12,9 +19,10 @@
             background-image: url('LGFridgeMood.jpg');
             background-size: cover;
             position: relative;
-            margin: 20px auto;
+            margin-right: 50px;
             border: 2px solid #000;
         }
+
         /* Panel overlays */
         .panel {
             position: absolute;
@@ -23,11 +31,12 @@
             background-color: rgba(255, 255, 255, 0.5);
             border: 1px solid #333;
         }
+
         .panel1 { top: 0; left: 0; }
         .panel2 { top: 0; right: 0; }
         .panel3 { bottom: 0; left: 0; }
         .panel4 { bottom: 0; right: 0; }
-        
+
         /* Styling the color swatches */
         .color-swatch {
             display: inline-block;
@@ -38,62 +47,8 @@
             cursor: pointer;
             border: 2px solid #ddd;
         }
+
         .color-container {
-            text-align: center;
-            margin-top: 20px;
+            text-align: left;
+            max-width: 300px;
         }
-        .section-title {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="fridge">
-        <!-- Fridge Panels -->
-        <div class="panel panel1" id="panel1"></div>
-        <div class="panel panel2" id="panel2"></div>
-        <div class="panel panel3" id="panel3"></div>
-        <div class="panel panel4" id="panel4"></div>
-    </div>
-
-    <div class="color-container">
-        <div class="section-title">UPPER - 17 Colors</div>
-        <!-- Upper panel color swatches -->
-        <div id="upper-swatches">
-            <div class="color-swatch" style="background-color: #AF1E2D;" onclick="changeColor('panel1', '#AF1E2D')"></div>
-            <div class="color-swatch" style="background-color: #B02C49;" onclick="changeColor('panel1', '#B02C49')"></div>
-            <div class="color-swatch" style="background-color: #543452;" onclick="changeColor('panel1', '#543452')"></div>
-            <div class="color-swatch" style="background-color: #7E9462;" onclick="changeColor('panel1', '#7E9462')"></div>
-            <div class="color-swatch" style="background-color: #3E5A78;" onclick="changeColor('panel1', '#3E5A78')"></div>
-            <div class="color-swatch" style="background-color: #794644;" onclick="changeColor('panel1', '#794644')"></div>
-            <div class="color-swatch" style="background-color: #4D4E54;" onclick="changeColor('panel1', '#4D4E54')"></div>
-            <!-- Add more swatches here based on your image colors -->
-        </div>
-    </div>
-
-    <div class="color-container">
-        <div class="section-title">LOWER - 17 Colors</div>
-        <!-- Lower panel color swatches -->
-        <div id="lower-swatches">
-            <div class="color-swatch" style="background-color: #F3E9B6;" onclick="changeColor('panel3', '#F3E9B6')"></div>
-            <div class="color-swatch" style="background-color: #E5E0E6;" onclick="changeColor('panel3', '#E5E0E6')"></div>
-            <div class="color-swatch" style="background-color: #F4F2E2;" onclick="changeColor('panel3', '#F4F2E2')"></div>
-            <div class="color-swatch" style="background-color: #BCCCD1;" onclick="changeColor('panel3', '#BCCCD1')"></div>
-            <div class="color-swatch" style="background-color: #C8A7A1;" onclick="changeColor('panel3', '#C8A7A1')"></div>
-            <div class="color-swatch" style="background-color: #E6A69C;" onclick="changeColor('panel3', '#E6A69C')"></div>
-            <div class="color-swatch" style="background-color: #F4EAE5;" onclick="changeColor('panel3', '#F4EAE5')"></div>
-            <!-- Add more swatches here based on your image colors -->
-        </div>
-    </div>
-
-    <script>
-        // JavaScript function to change the color of the fridge panels
-        function changeColor(panelId, color) {
-            document.getElementById(panelId).style.backgroundColor = color;
-        }
-    </script>
-
-</body>
-</html>
