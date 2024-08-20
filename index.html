@@ -36,20 +36,46 @@
             border: none;
         }
 
-        .panel {
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 1px solid #333;
-            transition: background-color 1s ease, box-shadow 1s ease;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
+.panel {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #333;
+    transition: background-color 1s ease, box-shadow 1s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
 
-        .panel1 { top: 0; left: 0; }
-        .panel2 { top: 0; right: 0; }
-        .panel3 { bottom: 0; left: 0; }
-        .panel4 { bottom: 0; right: 0; }
+/* Panel 1 */
+.panel1 {
+    width: 113px; /* Width of panel1 */
+    height: 265px; /* Height of panel1 */
+    top: 241px; /* Initial vertical position */
+    left: 831px; /* Initial horizontal position */
+}
+
+/* Panel 2 */
+.panel2 {
+    width: 113px; /* Width of panel2 */
+    height: 265px; /* Height of panel2 */
+    top: 241px; /* Same vertical position as panel1 */
+    left: calc(831px + 113px + 5px); /* Positioned to the right of panel1 with a 5px gap */
+}
+
+/* Panel 3 */
+.panel3 {
+    width: 113px; /* Width of panel3 */
+    height: 204px; /* Height of panel3 */
+    top: calc(241px + 265px + 10px); /* Positioned below panel1 with a 10px gap */
+    left: 831px; /* Same horizontal position as panel1 */
+}
+
+/* Panel 4 */
+.panel4 {
+    width: 113px; /* Width of panel4 */
+    height: 204px; /* Height of panel4 */
+    top: calc(241px + 265px + 10px); /* Same vertical position as panel3 */
+    left: calc(831px + 113px + 5px); /* Positioned to the right of panel3 with a 5px gap */
+}
+
 
         .color-swatch {
             display: inline-block;
