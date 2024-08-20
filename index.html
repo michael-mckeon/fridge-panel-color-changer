@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge Panel Color Changer with MoodUp</title>
+    <title>Fridge Panel Color Changer in Kitchen Environment</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             font-family: Arial, sans-serif;
+            background-image: url('lgmoodupenviornment-ezgif.com-avif-to-jpg-converter.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .fridge-container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            /* Adjust the width and height to fit the fridge in the environment image */
         }
 
         .fridge {
-            width: 300px;
-            height: 600px;
+            width: 100%;
+            height: 100%;
             background-image: url('LGFridgeMood.jpg');
             background-size: cover;
-            position: relative;
-            margin-right: 50px;
-            border: 2px solid #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
         }
 
         .panel {
@@ -28,8 +42,8 @@
             height: 50%;
             background-color: rgba(255, 255, 255, 0.5);
             border: 1px solid #333;
-            transition: background-color 1s ease, box-shadow 1s ease; /* Faster transition */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Initial soft glow */
+            transition: background-color 1s ease, box-shadow 1s ease;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         .panel1 { top: 0; left: 0; }
@@ -48,8 +62,12 @@
         }
 
         .color-container {
-            text-align: left;
-            max-width: 300px;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .section-title {
@@ -70,11 +88,13 @@
 </head>
 <body>
 
-    <div class="fridge">
-        <div class="panel panel1" id="panel1"></div>
-        <div class="panel panel2" id="panel2"></div>
-        <div class="panel panel3" id="panel3"></div>
-        <div class="panel panel4" id="panel4"></div>
+    <div class="fridge-container">
+        <div class="fridge">
+            <div class="panel panel1" id="panel1"></div>
+            <div class="panel panel2" id="panel2"></div>
+            <div class="panel panel3" id="panel3"></div>
+            <div class="panel panel4" id="panel4"></div>
+        </div>
     </div>
 
     <div class="color-container">
