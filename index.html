@@ -28,7 +28,8 @@
             height: 50%;
             background-color: rgba(255, 255, 255, 0.5);
             border: 1px solid #333;
-            transition: background-color 2s ease; /* Smooth transition between colors */
+            transition: background-color 1s ease, box-shadow 1s ease; /* Faster transition */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Initial soft glow */
         }
 
         .panel1 { top: 0; left: 0; }
@@ -124,7 +125,9 @@
         let upperInterval, lowerInterval;
 
         function changeColor(panelId, color) {
-            document.getElementById(panelId).style.backgroundColor = color;
+            const panel = document.getElementById(panelId);
+            panel.style.backgroundColor = color;
+            panel.style.boxShadow = `0 0 30px ${color}`; // Adjust the aura effect based on the color
         }
 
         function toggleMoodUp() {
@@ -132,8 +135,8 @@
 
             if (moodUpActive) {
                 // Start the MoodUp mode for upper and lower panels independently
-                upperInterval = setInterval(() => cycleColors('upper'), 2000); // Change every 2 seconds
-                lowerInterval = setInterval(() => cycleColors('lower'), 2000);
+                upperInterval = setInterval(() => cycleColors('upper'), 1000); // Faster transitions (1 second)
+                lowerInterval = setInterval(() => cycleColors('lower'), 1000);
             } else {
                 // Stop the MoodUp mode
                 clearInterval(upperInterval);
@@ -159,6 +162,8 @@
 
             panel1.style.backgroundColor = randomColor1;
             panel2.style.backgroundColor = randomColor2;
+            panel1.style.boxShadow = `0 0 30px ${randomColor1}`; // Adjusting the glow for panel1
+            panel2.style.boxShadow = `0 0 30px ${randomColor2}`; // Adjusting the glow for panel2
         }
     </script>
 
